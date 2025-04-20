@@ -3,56 +3,85 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Portfolio</title>
+  <title>My Smooth Portfolio</title>
+
+  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Locomotive Scroll CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css" />
+
+  <style>
+    html, body {
+      scroll-behavior: smooth;
+      height: 100%;
+    }
+    [data-scroll-container] {
+      will-change: transform;
+    }
+  </style>
 </head>
-<body class="bg-gray-900 text-white font-sans leading-relaxed">
+<body class="bg-gray-900 text-white font-sans">
 
-  <!-- Hero Section -->
-  <section class="min-h-screen flex flex-col justify-center items-center text-center px-4">
-    <h1 class="text-4xl md:text-5xl font-bold text-teal-400">Hi, I'm Pankaj Sagvekar</h1>
-    <p class="text-lg mt-4 text-gray-300">Web Developer & Tech Enthusiast</p>
-    <a href="#projects" class="mt-6 bg-teal-500 text-white px-6 py-2 rounded-full hover:bg-teal-400 transition">View Projects</a>
-  </section>
+  <!-- Locomotive Scroll Container -->
+  <div data-scroll-container>
 
-  <!-- About Section -->
-  <section id="about" class="py-16 px-6 max-w-3xl mx-auto">
-    <h2 class="text-2xl font-bold text-teal-300 mb-4">About Me</h2>
-    <p class="text-gray-300">
-      I'm a passionate developer who loves building web applications using modern tools and technologies.
-      I enjoy clean code, coffee, and late-night debugging.
-    </p>
-  </section>
+    <!-- Hero Section -->
+    <section data-scroll-section class="min-h-screen flex flex-col justify-center items-center text-center px-4">
+      <h1 data-scroll data-scroll-speed="2" class="text-4xl md:text-5xl font-bold text-teal-400">Hi, I'm Pankaj Sagvekar</h1>
+      <p data-scroll data-scroll-speed="1" class="text-lg mt-4 text-gray-300">Web Developer & Tech Enthusiast</p>
+    </section>
 
-  <!-- Projects Section -->
-  <section id="projects" class="py-16 px-6 bg-gray-800">
-    <h2 class="text-2xl font-bold text-teal-300 mb-6 text-center">Projects</h2>
-    <div class="grid gap-6 md:grid-cols-2">
-      <div class="bg-gray-700 p-4 rounded-lg">
-        <h3 class="text-xl font-semibold text-teal-200">Project One</h3>
-        <p class="text-gray-300 text-sm">A cool web app made with HTML, CSS, JS.</p>
+    <!-- About Section -->
+    <section id="about" data-scroll-section class="py-16 px-6 max-w-3xl mx-auto">
+      <h2 class="text-2xl font-bold text-teal-300 mb-4" data-scroll data-scroll-speed="1">About Me</h2>
+      <p class="text-gray-300">
+        I'm a passionate developer who loves building web applications using modern tools and technologies.
+        I enjoy clean code, coffee, and late-night debugging.
+      </p>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" data-scroll-section class="py-16 px-6 bg-gray-800">
+      <h2 class="text-2xl font-bold text-teal-300 mb-6 text-center" data-scroll data-scroll-speed="1">Projects</h2>
+      <div class="grid gap-6 md:grid-cols-2">
+        <div class="bg-gray-700 p-4 rounded-lg" data-scroll data-scroll-speed="1.5">
+          <h3 class="text-xl font-semibold text-teal-200">Project One</h3>
+          <p class="text-gray-300 text-sm">A cool web app made with HTML, CSS, JS.</p>
+        </div>
+        <div class="bg-gray-700 p-4 rounded-lg" data-scroll data-scroll-speed="1.5">
+          <h3 class="text-xl font-semibold text-teal-200">Project Two</h3>
+          <p class="text-gray-300 text-sm">A fun game built using JavaScript and Canvas.</p>
+        </div>
       </div>
-      <div class="bg-gray-700 p-4 rounded-lg">
-        <h3 class="text-xl font-semibold text-teal-200">Project Two</h3>
-        <p class="text-gray-300 text-sm">A fun game built using JavaScript and Canvas.</p>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" data-scroll-section class="py-16 px-6 text-center">
+      <h2 class="text-2xl font-bold text-teal-300 mb-4" data-scroll data-scroll-speed="1">Let's Connect</h2>
+      <p class="text-gray-300 mb-4">Feel free to reach out to me via email or check my work below!</p>
+      <div class="flex justify-center gap-6">
+        <a href="https://github.com/pankajsagvekar" target="_blank" class="text-teal-400 hover:underline">GitHub</a>
+        <a href="https://linkedin.com/in/pankajsagvekar" target="_blank" class="text-teal-400 hover:underline">LinkedIn</a>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Contact Section -->
-  <section id="contact" class="py-16 px-6 text-center">
-    <h2 class="text-2xl font-bold text-teal-300 mb-4">Let's Connect</h2>
-    <p class="text-gray-300 mb-4">Feel free to reach out to me via email or check my work below!</p>
-    <div class="flex justify-center gap-6">
-      <a href="https://github.com/pankajsagvekar" target="_blank" class="text-teal-400 hover:underline">GitHub</a>
-      <a href="https://linkedin.com/in/pankajsagvekar" target="_blank" class="text-teal-400 hover:underline">LinkedIn</a>
-    </div>
-  </section>
+    <!-- Footer -->
+    <footer data-scroll-section class="py-4 text-center text-sm text-gray-500">
+      © 2025 Pankaj's Portfolio. All rights reserved.
+    </footer>
 
-  <!-- Footer -->
-  <footer class="py-4 text-center text-sm text-gray-500">
-    © 2025 Pankaj's Portfolio. All rights reserved.
-  </footer>
+  </div>
 
+  <!-- Locomotive Scroll JS -->
+  <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
+
+  <!-- Init Locomotive Scroll -->
+  <script>
+    const scroll = new LocomotiveScroll({
+      el: document.querySelector('[data-scroll-container]'),
+      smooth: true
+    });
+  </script>
 </body>
 </html>
