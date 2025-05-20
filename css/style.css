@@ -1,0 +1,39 @@
+:root {
+    --crimson: #FF0033;
+    --carbon: #0A0A0A;
+    --chrome: #F2F2F2;
+    --graphite: #1F1F1F;
+    --ember: #FF4500;
+    --cyberblue: #00FFFF;
+}
+
+@font-face {
+    font-family: 'Netron';
+    src: url('../fonts/netron.regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--chrome);
+    color: var(--graphite);
+}
+
+nav {
+    color: var(--chrome);
+}
+
+.hero-text {
+    font-family: 'Netron';
+    color: var(--chrome);
+}
+
+.background {
+    position: absolute;
+    display:block;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
