@@ -12,13 +12,14 @@
 
 <body>
     <section class="relative h-screen w-full overflow-hidden" id="home">
-        <img src="img/hero.jpg" alt="background"class="absolute top-0 left-0 w-full h-full md:h-fit object-cover object-center z-[-1]">
-
+        <img src="img/hero.jpg" alt="background"
+            class="absolute top-0 left-0 w-full h-full md:h-fit object-cover object-center z-[-1]">
 
         <div class="absolute top-0 left-0 w-full h-full bg-black bg-opacity-55 z-[-1]"></div>
 
         <nav class="px-10 py-6">
-            <div class="flex flex-wrap justify-center sm:justify-between items-center gap-4 sm:gap-10 text-sm sm:text-lg uppercase font-mono font-semibold text-center">
+            <div
+                class="flex flex-wrap justify-center sm:justify-between items-center gap-4 sm:gap-10 text-sm sm:text-lg uppercase font-mono font-semibold text-center">
                 <a href="#home" class="hover:text-red-500 transition">Home</a>
                 <a href="#about" class="hover:text-red-500 transition">About</a>
                 <a href="#projects" class="hover:text-red-500 transition">Projects</a>
@@ -32,15 +33,91 @@
 
     </section>
 
+    <section class="m-5" id="about">
+        <div class="font-mono">
+            <h2 class="text-3xl font-semibold text-red-600">About Me</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere, saepe nesciunt corrupti distinctio rerum
+                tempore sequi placeat adipisci tenetur alias, dicta excepturi. Cumque corporis vero ipsam quod
+                architecto odit quo.</p>
+        </div>
+    </section>
+
+    <section class="m-5" id="projects">
+        <div class="font-mono">
+            <h2 class="text-3xl font-semibold text-red-600">My Projects</h2>
+            <div class="mt-5 grid lg:grid-cols-2 gap-3">
+                <div class="w-[500px] h-[250px] bg-white border rounded-lg shadow-sm border-gray-700 flex ">
+                    <div class="w-1/2">
+                        <img class="rounded-l-lg h-full w-full object-cover" src="img/hero.jpg" alt="Card image" />
+                    </div>
+
+                    <div class="w-1/2 p-4 flex flex-col justify-between">
+                        <div>
+                            <h5 class="text-xl font-bold tracking-tight text-gray-700">Noteworthy tech acquisitions 2021
+                            </h5>
+                            <p class="text-sm text-gray-500 mt-2">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
+                        </div>
+                        <a href="#"
+                            class="inline-flex items-center mt-4 px-3 py-2 text-sm font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800">Check Project
+                            <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="w-[500px] h-[250px] bg-white border rounded-lg shadow-sm border-gray-700 flex">
+                    <div class="w-1/2">
+                        <img class="rounded-l-lg h-full w-full object-cover" src="img/hero.jpg" alt="Card image" />
+                    </div>
+
+                    <div class="w-1/2 p-4 flex flex-col justify-between">
+                        <div>
+                            <h5 class="text-xl font-bold tracking-tight text-gray-700">Noteworthy tech acquisitions 2021
+                            </h5>
+                            <p class="text-sm text-gray-500 mt-2">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
+                        </div>
+                        <a href="#"
+                            class="inline-flex items-center mt-4 px-3 py-2 text-sm font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800">Check Project
+                            <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="w-[500px] h-[250px] bg-white border rounded-lg shadow-sm border-gray-700 flex">
+                    <div class="w-1/2">
+                        <img class="rounded-l-lg h-full w-full object-cover" src="img/hero.jpg" alt="Card image" />
+                    </div>
+
+                    <div class="w-1/2 p-4 flex flex-col justify-between">
+                        <div>
+                            <h5 class="text-xl font-bold tracking-tight text-gray-700">Noteworthy tech acquisitions 2021
+                            </h5>
+                            <p class="text-sm text-gray-500 mt-2">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
+                        </div>
+                        <a href="#"
+                            class="inline-flex items-center mt-4 px-3 py-2 text-sm font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800">Check Project
+                            <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
 
     <canvas class="background pointer-events-none"></canvas>
     <script>
         window.onload = function () {
             Particles.init
-            ({
-                selector:'.background',
-                color: '#F2F2F2',
-            });
+                ({
+                    selector: '.background',
+                    color: '#F2F2F2',
+                });
         };
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.2/particles.min.js"></script>
