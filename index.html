@@ -2,146 +2,190 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PANKAJ SAGVEKAR</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/smoothscroll/1.5.1/SmoothScroll.min.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PANKAJ SAGVEKAR</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/smoothscroll/1.5.1/SmoothScroll.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 
 <body>
-    <section class="relative h-screen w-full overflow-hidden" id="home">
-        <img src="img/hero.jpg" alt="background"
-            class="absolute top-0 left-0 w-full h-full md:h-fit object-cover object-center z-[-1]">
+  <section class="relative h-screen w-full overflow-hidden" id="home">
+    <img src="img/hero.jpg" alt="background"
+      class="absolute top-0 left-0 w-full h-full md:h-fit object-cover object-center z-[-1]">
 
-        <div class="absolute top-0 left-0 w-full h-full bg-black bg-opacity-55 z-[-1]"></div>
+    <div class="absolute top-0 left-0 w-full h-full bg-black bg-opacity-55 z-[-1]"></div>
 
-        <nav class="px-10 py-6">
-            <div
-                class="flex flex-wrap justify-center sm:justify-between items-center gap-4 sm:gap-10 text-sm sm:text-lg uppercase font-mono font-semibold text-center">
-                <a href="#home" class="hover:text-red-500 transition">Home</a>
-                <a href="#about" class="hover:text-red-500 transition">About</a>
-                <a href="#projects" class="hover:text-red-500 transition">Projects</a>
-                <a href="#contact" class="hover:text-red-500 transition">Contact</a>
-            </div>
-        </nav>
+    <nav class="px-10 py-6">
+      <div
+        class="flex flex-wrap justify-center sm:justify-between items-center gap-4 sm:gap-10 text-sm sm:text-lg uppercase font-mono font-semibold text-center">
+        <a href="#home" class="hover:text-red-500 transition">Home</a>
+        <a href="#about" class="hover:text-red-500 transition">About</a>
+        <a href="#projects" class="hover:text-red-500 transition">Projects</a>
+        <a href="#contact" class="hover:text-red-500 transition">Contact</a>
+      </div>
+    </nav>
 
-        <div class="flex justify-center items-center h-[calc(100vh-80px)] px-10 pb-20">
-            <h1 class="text-5xl sm:text-6xl lg:text-7xl font-bold hero-text hover:text-red-500 transition cursor-crosshair">Pankaj Sagvekar</h1>
-        </div>
+    <div class="flex justify-center items-center h-[calc(100vh-80px)] px-10 pb-20">
+      <h1 class="text-5xl sm:text-6xl lg:text-7xl font-bold hero-text hover:text-red-500 transition cursor-crosshair">
+        Pankaj Sagvekar</h1>
+    </div>
 
-    </section>
+  </section>
 
-    <section class="m-5" id="about">
-        <div class="font-mono">
-            <h2 class="text-3xl font-semibold text-red-600">About Me</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere, saepe nesciunt corrupti distinctio rerum
-                tempore sequi placeat adipisci tenetur alias, dicta excepturi. Cumque corporis vero ipsam quod
-                architecto odit quo.</p>
-        </div>
-    </section>
+  <section class="m-5" id="about">
+    <div class="font-mono">
+      <h2 class="text-3xl font-semibold text-red-600">About Me</h2>
+      <p>
+        Hey! I’m a Computer Science student and programmer who loves building creative and meaningful projects. I mostly
+        work with Python, especially using Django and Flask to build web apps and tools that solve real problems.
 
-    <section class="m-5" id="projects">
-        <div class="font-mono">
-          <h2 class="text-3xl font-semibold text-red-600">My Projects</h2>
-          <div class="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-6">
+        I’m always exploring new technologies and enjoy participating in hackathons and working on ideas around mental
+        health, productivity, and learning. Always curious. Always coding.
+      </p>
+    </div>
+  </section>
 
-            <div class="bg-white border border-gray-300 rounded-lg shadow-sm flex flex-col md:flex-row overflow-hidden">
-              <div class="md:w-1/2 h-48 md:h-auto">
-                <img class="w-full h-full object-cover" src="img/hero.jpg" alt="Card image" />
-              </div>
-              <div class="md:w-1/2 p-4 flex flex-col justify-between">
-                <div>
-                  <h5 class="text-xl font-bold tracking-tight text-gray-700">
-                    Noteworthy tech acquisitions 2021
-                  </h5>
-                  <p class="text-sm text-gray-500 mt-2">
-                    Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.
-                  </p>
-                </div>
-                <a href="#" class="inline-flex items-center mt-4 px-3 py-2 text-sm font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800">
-                  Check Project
-                  <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
-                  </svg>
-                </a>
-              </div>
-            </div>
+  <section class="m-5" id="projects">
+    <div class="font-mono">
+      <h2 class="text-3xl font-semibold text-red-600">My Projects</h2>
+      <div class="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-6">
 
-            <div class="bg-white border border-gray-300 rounded-lg shadow-sm flex flex-col md:flex-row overflow-hidden">
-                <div class="md:w-1/2 h-48 md:h-auto">
-                  <img class="w-full h-full object-cover" src="img/hero.jpg" alt="Card image" />
-                </div>
-                <div class="md:w-1/2 p-4 flex flex-col justify-between">
-                  <div>
-                    <h5 class="text-xl font-bold tracking-tight text-gray-700">
-                      Noteworthy tech acquisitions 2021
-                    </h5>
-                    <p class="text-sm text-gray-500 mt-2">
-                      Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.
-                    </p>
-                  </div>
-                  <a href="#" class="inline-flex items-center mt-4 px-3 py-2 text-sm font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800">
-                    Check Project
-                    <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
-                    </svg>
-                  </a>
-                </div>
-            </div>
+        <div class="bg-white border border-gray-300 rounded-lg shadow-sm flex flex-col md:flex-row overflow-hidden">
+          <div class="md:w-1/2 h-48 md:h-auto">
+            <img class="w-full h-full object-cover" src="img/hero.jpg" alt="Card image" />
           </div>
-        </div>
-    </section>
-      
-    <footer class="bg-black text-white font-mono">
-        <div class="max-w-screen-xl mx-auto px-6 py-10">
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
-      
-            <!-- Quick Links -->
+          <div class="md:w-1/2 p-4 flex flex-col justify-between">
             <div>
-              <h3 class="text-lg font-semibold text-red-500 mb-2">Quick Links</h3>
-              <ul class="text-sm space-y-2">
-                <li><a href="#home" class="hover:text-red-400 transition">Home</a></li>
-                <li><a href="#about" class="hover:text-red-400 transition">About</a></li>
-                <li><a href="#projects" class="hover:text-red-400 transition">Projects</a></li>
-                <li><a href="#contact" class="hover:text-red-400 transition">Contact</a></li>
-              </ul>
+              <h5 class="text-xl font-bold tracking-tight text-gray-700">
+                Noteworthy tech acquisitions 2021
+              </h5>
+              <p class="text-sm text-gray-500 mt-2">
+                Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.
+              </p>
             </div>
-      
-            <!-- Contact -->
-            <div>
-              <h3 class="text-lg font-semibold text-red-500 mb-2">Contact</h3>
-              <p class="text-sm text-gray-300">Email: <a href="mailto:pankajsagvekar167@gmail.com" class="hover:text-red-400">pankajsagvekar167@gmail.com</a></p>
-              <p class="text-sm text-gray-300 mt-2">Location: India</p>
-              <div class="flex justify-center md:justify-start space-x-4 mt-4">
-                <a href="#" class="hover:text-red-400 transition">LinkedIn</a>
-                <a href="#" class="hover:text-red-400 transition">GitHub</a>
-                <a href="#" class="hover:text-red-400 transition">Twitter</a>
-              </div>
-            </div>
-          </div>
-      
-          <div class="border-t border-gray-700 mt-10 pt-5 text-center text-sm text-gray-500">
-            © 2025 Pankaj Sagvekar. All rights reserved.
+            <a href="#"
+              class="inline-flex items-center mt-4 px-3 py-2 text-sm font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800">
+              Check Project
+              <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" xmlns="http://www.w3.org/2000/svg" fill="none"
+                viewBox="0 0 14 10">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M1 5h12m0 0L9 1m4 4L9 9" />
+              </svg>
+            </a>
           </div>
         </div>
-      </footer>
-      
-    
 
-    <canvas class="background pointer-events-none"></canvas>
-    <script>
-        window.onload = function () {
-            Particles.init
-                ({
-                    selector: '.background',
-                    color: '#F2F2F2',
-                });
-        };
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.2/particles.min.js"></script>
+        <div class="bg-white border border-gray-300 rounded-lg shadow-sm flex flex-col md:flex-row overflow-hidden">
+          <div class="md:w-1/2 h-48 md:h-auto">
+            <img class="w-full h-full object-cover" src="img/hero.jpg" alt="Card image" />
+          </div>
+          <div class="md:w-1/2 p-4 flex flex-col justify-between">
+            <div>
+              <h5 class="text-xl font-bold tracking-tight text-gray-700">
+                Noteworthy tech acquisitions 2021
+              </h5>
+              <p class="text-sm text-gray-500 mt-2">
+                Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.
+              </p>
+            </div>
+            <a href="#"
+              class="inline-flex items-center mt-4 px-3 py-2 text-sm font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800">
+              Check Project
+              <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" xmlns="http://www.w3.org/2000/svg" fill="none"
+                viewBox="0 0 14 10">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M1 5h12m0 0L9 1m4 4L9 9" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <footer class="bg-black text-white font-mono">
+    <div class="max-w-screen-xl mx-auto px-6 py-10">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+
+        <!-- Quick Links -->
+        <div>
+          <h3 class="text-lg font-semibold text-red-500 mb-2">Quick Links</h3>
+          <ul class="text-sm space-y-2">
+            <li><a href="#home" class="hover:text-red-400 transition">Home</a></li>
+            <li><a href="#about" class="hover:text-red-400 transition">About</a></li>
+            <li><a href="#projects" class="hover:text-red-400 transition">Projects</a></li>
+            <li><a href="#contact" class="hover:text-red-400 transition">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact -->
+        <div>
+          <h3 class="text-lg font-semibold text-red-500 mb-2">Contact</h3>
+          <a href="mailto:pankajsagvekar167@gmail.com" class="hover:text-red-400 text-sm text-gray-300 block">
+            <i data-lucide="mail" class="inline w-4 h-4 mr-1"></i> pankajsagvekar167@gmail.com
+          </a>
+          <p class="text-sm text-gray-300 mt-2">
+            <i data-lucide="map-pin" class="inline w-4 h-4 mr-1"></i> India
+          </p>
+          <div class="flex justify-center md:justify-start space-x-4 mt-4 text-sm">
+            <a href="https://linkedin.com/in/ypankajsagvekar" target="_blank" rel="noopener"
+              class="hover:text-red-400 transition flex items-center">
+              <i data-lucide="linkedin" class="w-4 h-4 mr-1"></i> LinkedIn
+            </a>
+            <a href="https://github.com/pankajsagvekar" target="_blank" rel="noopener"
+              class="hover:text-red-400 transition flex items-center">
+              <i data-lucide="github" class="w-4 h-4 mr-1"></i> GitHub
+            </a>
+            <a href="https://twitter.com/pankajsagvekar" target="_blank" rel="noopener"
+              class="hover:text-red-400 transition flex items-center">
+              <i data-lucide="twitter" class="w-4 h-4 mr-1"></i> Twitter
+            </a>
+          </div>
+        </div>
+
+        <!-- Site Info -->
+        <div>
+          <h3 class="text-lg font-semibold text-red-500 mb-2">Site Info</h3>
+          <p class="text-sm text-gray-300">
+            Built using <span class="text-white">HTML</span>, <span class="text-white">CSS</span>, and <span
+              class="text-white">Tailwind CSS</span>.
+            Hosted on <a href="https://pages.github.com/" target="_blank" rel="noopener"
+              class="hover:text-red-400">GitHub Pages</a>, domain by <a href="https://gen.xyz" target="_blank"
+              rel="noopener" class="hover:text-red-400">Gen.xyz</a>.
+          </p>
+        </div>
+
+
+      </div>
+
+      <div class="border-t border-gray-700 mt-10 pt-5 text-center text-sm text-gray-500">
+        © 2025 Pankaj Sagvekar. All rights reserved.
+        <br />
+        <a href="#home" class="text-gray-400 hover:text-red-400 mt-2 inline-block">↑ Back to top</a>
+      </div>
+    </div>
+  </footer>
+
+
+  <canvas class="background pointer-events-none"></canvas>
+  <script>
+    window.onload = function () {
+      Particles.init
+        ({
+          selector: '.background',
+          color: '#F2F2F2',
+        });
+    };
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.2/particles.min.js"></script>
+  <script>
+    lucide.createIcons();
+  </script>
 </body>
 
 </html>
