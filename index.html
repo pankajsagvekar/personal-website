@@ -55,20 +55,22 @@
       <h2 class="text-3xl font-semibold text-red-600">My Projects</h2>
       <div class="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-6">
 
-        <div class="bg-white border border-gray-300 rounded-lg shadow-sm flex flex-col md:flex-row overflow-hidden">
+        <!-- Task Manager Card -->
+        <div class="bg-white border border-gray-300 rounded-lg shadow-sm flex flex-col md:flex-row overflow-hidden lg:h-72">
           <div class="md:w-1/2 h-48 md:h-auto">
-            <img class="w-full h-full object-cover" src="img/hero.jpg" alt="Card image" />
+            <img class="w-full h-full object-cover" src="img/taskapi.jpg" alt="Card image" />
           </div>
           <div class="md:w-1/2 p-4 flex flex-col justify-between">
             <div>
               <h5 class="text-xl font-bold tracking-tight text-gray-700">
-                Noteworthy tech acquisitions 2021
+                Task Manager API
               </h5>
               <p class="text-sm text-gray-500 mt-2">
-                Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.
+                A secure, production-ready task-management backend built with Spring Boot 3, Spring Security (JWT),
+                Spring Data JPA and MySQL.
               </p>
             </div>
-            <a href="#"
+            <a href="https://github.com/pankajsagvekar/task-manager-api"
               class="inline-flex items-center mt-4 px-3 py-2 text-sm font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800">
               Check Project
               <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" xmlns="http://www.w3.org/2000/svg" fill="none"
@@ -80,20 +82,22 @@
           </div>
         </div>
 
-        <div class="bg-white border border-gray-300 rounded-lg shadow-sm flex flex-col md:flex-row overflow-hidden">
+        <!-- Blogging Platform Card -->
+        <div class="bg-white border border-gray-300 rounded-lg shadow-sm flex flex-col md:flex-row overflow-hidden lg:h-72">
           <div class="md:w-1/2 h-48 md:h-auto">
-            <img class="w-full h-full object-cover" src="img/hero.jpg" alt="Card image" />
+            <img class="w-full h-full object-cover" src="img/blogplatform.jpg" alt="Card image" />
           </div>
           <div class="md:w-1/2 p-4 flex flex-col justify-between">
             <div>
               <h5 class="text-xl font-bold tracking-tight text-gray-700">
-                Noteworthy tech acquisitions 2021
+                Blogging Platform
               </h5>
               <p class="text-sm text-gray-500 mt-2">
-                Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.
+                The Blogging Platform is a secure backend built with Spring Boot, MySQL, and JWT for managing posts,
+                comments, and likes.
               </p>
             </div>
-            <a href="#"
+            <a href="https://github.com/pankajsagvekar/blogging-platform"
               class="inline-flex items-center mt-4 px-3 py-2 text-sm font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800">
               Check Project
               <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" xmlns="http://www.w3.org/2000/svg" fill="none"
@@ -104,6 +108,7 @@
             </a>
           </div>
         </div>
+
       </div>
     </div>
   </section>
@@ -116,15 +121,18 @@
       <form action="https://formspree.io/f/xwpbjnvk" method="POST" class="space-y-4">
         <div>
           <input type="text" name="name" placeholder="Your Name"
-            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-400" required>
+            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-400"
+            required>
         </div>
         <div>
           <input type="email" name="email" placeholder="Your Email"
-            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-400" required>
+            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-400"
+            required>
         </div>
         <div>
           <textarea name="message" rows="5" placeholder="Your Message"
-            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-400" required></textarea>
+            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-400"
+            required></textarea>
         </div>
         <button type="submit" class="bg-red-500 text-white px-6 py-2 rounded-lg hover:bg-red-600 transition">Send
           Message</button>
@@ -180,26 +188,21 @@
               rel="noopener" class="hover:text-red-400">Gen.xyz</a>.
           </p>
         </div>
-
-
       </div>
 
       <div class="border-t border-gray-700 mt-10 pt-5 text-center text-sm text-gray-500">
         © 2025 Pankaj Sagvekar. All rights reserved.
-        <br />
       </div>
     </div>
   </footer>
 
-
   <canvas class="background pointer-events-none"></canvas>
   <script>
     window.onload = function () {
-      Particles.init
-        ({
-          selector: '.background',
-          color: '#F2F2F2',
-        });
+      Particles.init({
+        selector: '.background',
+        color: '#F2F2F2',
+      });
     };
   </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.2/particles.min.js"></script>
