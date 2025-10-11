@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nexu Chat</title>
+
+  <!-- TailwindCSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Supabase CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+
+  <style>
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: #14b8a6;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+
+<body class="bg-gray-900 text-white flex justify-center items-center min-h-screen">
+
+  <div class="bg-gray-800 rounded-2xl shadow-lg p-6 w-full max-w-md">
+    <h1 class="text-center text-3xl font-bold mb-5 text-teal-400">💬 Nexu Chat</h1>
+
+    <!-- LOGIN SECTION -->
+    <div id="loginSection" class="space-y-4">
+      <input id="usernameInput" type="text" placeholder="Enter your username"
+        class="w-full p-2 rounded bg-gray-700 border border-gray-600 focus:outline-none">
+      <button id="loginBtn" class="w-full bg-teal-500 hover:bg-teal-600 p-2 rounded font-semibold transition">Join
+        Chat</button>
+    </div>
+
+    <!-- CHAT SECTION -->
+    <div id="chatSection" class="hidden">
+      <div class="flex justify-between mb-2">
+        <h2>👋 Logged in as <span id="currentUser" class="text-teal-400 font-semibold"></span></h2>
+        <button id="logoutBtn" class="text-sm text-red-400 hover:text-red-300">Logout</button>
+      </div>
+
+      <!-- Mode Switch -->
+      <div class="flex gap-2 mb-3">
+        <button id="publicBtn" class="bg-teal-500 text-white px-3 py-1 rounded text-sm">Public</button>
+        <button id="privateBtn" class="bg-gray-700 px-3 py-1 rounded text-sm">Private</button>
+      </div>
+
+      <!-- Receiver Input -->
+      <div id="privateSection" class="hidden mb-3">
+        <input id="receiverInput" type="text" placeholder="Receiver username"
+          class="w-full p-2 rounded bg-gray-700 border border-gray-600 focus:outline-none" />
+      </div>
+
+      <!-- Messages -->
+      <div id="messages" class="h-64 overflow-y-auto bg-gray-900 p-3 border border-gray-700 rounded mb-3"></div>
+
+      <!-- Message Input -->
+      <div class="flex gap-2">
+        <input id="messageInput" type="text" placeholder="Type a message..."
+          class="flex-grow p-2 rounded bg-gray-700 border border-gray-600 focus:outline-none" />
+        <button id="sendBtn"
+          class="bg-teal-500 hover:bg-teal-600 px-4 py-2 rounded font-semibold transition">Send</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // ✅ SUPABASE CONFIG
+    const SUPABASE_URL = 'https://vzvzakcjrnhyoniyuqpc.supabase.co';
+    const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZ6dnpha2Nqcm5oeW9uaXl1cXBjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjAxNDM4NzEsImV4cCI6MjA3NTcxOTg3MX0.uB_TCD1CQM0gIr0xLTvPV9muhCIFVwpSrOPD37NE7J8';
+
+    const client = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY, {
+      auth: {
+        persistSession: false
+      }
+    });
+
+    // 🔧 FALLBACK: Use localStorage if Supabase fails
+    const USE_FALLBACK = true; // Set to false when Supabase is properly configured
+
+    let currentUser = null;
+    let currentUserId = null;
+    let isPrivate = false;
+
+    const loginSection = document.getElementById('loginSection');
+    const chatSection = document.getElementById('chatSection');
+    const usernameInput = document.getElementById('usernameInput');
+    const currentUserSpan = document.getElementById('currentUser');
+    const messageInput = document.getElementById('messageInput');
+    const messagesDiv = document.getElementById('messages');
+    const receiverInput = document.getElementById('receiverInput');
+
+    // 🟢 LOGIN
+    document.getElementById('loginBtn').addEventListener('click', async () => {
+      const username = usernameInput.value.trim();
+      if (!username) return alert('Enter a username');
+
+      if (USE_FALLBACK) {
+        // Fallback: Use localStorage
+        currentUser = username;
+        currentUserId = Date.now(); // Simple ID generation
+
+        // Store user in localStorage
+        let users = JSON.parse(localStorage.getItem('chat_users') || '[]');
+        if (!users.find(u => u.username === username)) {
+          users.push({ id: currentUserId, username: username });
+          localStorage.setItem('chat_users', JSON.stringify(users));
+        }
+
+        currentUserSpan.textContent = username;
+        loginSection.classList.add('hidden');
+        chatSection.classList.remove('hidden');
+
+        loadMessages();
+        return;
+      }
+
+      try {
+        // Try to fetch existing user
+        const { data: existingUsers, error: fetchError } = await client
+          .from('users')
+          .select('*')
+          .eq('username', username);
+
+        if (fetchError) {
+          console.error('Fetch error:', fetchError);
+          return alert('Error connecting to database: ' + fetchError.message);
+        }
+
+        let user;
+        if (existingUsers && existingUsers.length > 0) {
+          user = existingUsers[0];
+        } else {
+          // Create new user
+          const { data: newUser, error: insertError } = await client
+            .from('users')
+            .insert([{ username: username }])
+            .select();
+
+          if (insertError) {
+            console.error('Insert error:', insertError);
+            return alert('Error creating user: ' + insertError.message);
+          }
+
+          if (newUser && newUser.length > 0) {
+            user = newUser[0];
+          } else {
+            return alert('Failed to create user');
+          }
+        }
+
+        currentUser = username;
+        currentUserId = user.id;
+
+        currentUserSpan.textContent = username;
+        loginSection.classList.add('hidden');
+        chatSection.classList.remove('hidden');
+
+        loadMessages();
+        subscribeToMessages();
+      } catch (err) {
+        console.error('Login error:', err);
+        alert('Login failed: ' + err.message);
+      }
+    });
+
+    // 🚪 LOGOUT
+    document.getElementById('logoutBtn').addEventListener('click', () => {
+      location.reload();
+    });
+
+    // 🌐 PUBLIC / PRIVATE MODE SWITCH
+    document.getElementById('publicBtn').addEventListener('click', () => {
+      isPrivate = false;
+      receiverInput.value = '';
+      document.getElementById('privateSection').classList.add('hidden');
+    });
+
+    document.getElementById('privateBtn').addEventListener('click', () => {
+      isPrivate = true;
+      document.getElementById('privateSection').classList.remove('hidden');
+    });
+
+    // ✉️ SEND MESSAGE
+    document.getElementById('sendBtn').addEventListener('click', async () => {
+      const content = messageInput.value.trim();
+      if (!content) return;
+
+      if (USE_FALLBACK) {
+        // Fallback: Use localStorage
+        let receiverId = null;
+
+        if (isPrivate) {
+          const receiverUsername = receiverInput.value.trim();
+          if (!receiverUsername) return alert('Enter receiver username');
+
+          const users = JSON.parse(localStorage.getItem('chat_users') || '[]');
+          const receiver = users.find(u => u.username === receiverUsername);
+          if (!receiver) return alert('Receiver not found');
+          receiverId = receiver.id;
+        }
+
+        const message = {
+          id: Date.now(),
+          sender_id: currentUserId,
+          receiver_id: receiverId,
+          content: content,
+          created_at: new Date().toISOString()
+        };
+
+        let messages = JSON.parse(localStorage.getItem('chat_messages') || '[]');
+        messages.push(message);
+        localStorage.setItem('chat_messages', JSON.stringify(messages));
+
+        renderMessage(message);
+        messageInput.value = '';
+        return;
+      }
+
+      try {
+        let receiverId = null;
+
+        if (isPrivate) {
+          const receiverUsername = receiverInput.value.trim();
+          if (!receiverUsername) return alert('Enter receiver username');
+
+          const { data: receivers, error: receiverError } = await client
+            .from('users')
+            .select('id')
+            .eq('username', receiverUsername);
+
+          if (receiverError) {
+            console.error('Receiver lookup error:', receiverError);
+            return alert('Error finding receiver: ' + receiverError.message);
+          }
+
+          if (!receivers || receivers.length === 0) {
+            return alert('Receiver not found');
+          }
+
+          receiverId = receivers[0].id;
+        }
+
+        const { error } = await client.from('messages').insert([{
+          sender_id: currentUserId,
+          receiver_id: receiverId,
+          content: content
+        }]);
+
+        if (error) {
+          console.error('Supabase insert error:', error);
+          alert('Failed to send message: ' + error.message);
+          return;
+        }
+
+        messageInput.value = '';
+      } catch (err) {
+        console.error('Send message error:', err);
+        alert('Failed to send message: ' + err.message);
+      }
+    });
+
+    // 📥 LOAD MESSAGES
+    async function loadMessages() {
+      messagesDiv.innerHTML = '';
+
+      if (USE_FALLBACK) {
+        // Fallback: Load from localStorage
+        const messages = JSON.parse(localStorage.getItem('chat_messages') || '[]');
+        messages.forEach(renderMessage);
+        return;
+      }
+
+      try {
+        const { data, error } = await client
+          .from('messages')
+          .select('id, content, created_at, sender_id, receiver_id')
+          .order('created_at', { ascending: true });
+
+        if (error) {
+          console.error('Load error:', error);
+          return;
+        }
+
+        if (data) {
+          data.forEach(renderMessage);
+        }
+      } catch (err) {
+        console.error('Load messages error:', err);
+      }
+    }
+
+    // 🔁 REALTIME UPDATES
+    function subscribeToMessages() {
+      if (USE_FALLBACK) {
+        // Fallback: Poll for new messages every 2 seconds
+        setInterval(() => {
+          loadMessages();
+        }, 2000);
+        return;
+      }
+
+      client
+        .channel('realtime:messages')
+        .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'messages' }, payload => {
+          renderMessage(payload.new);
+        })
+        .subscribe();
+    }
+
+    // 💬 RENDER MESSAGE
+    async function renderMessage(msg) {
+      try {
+        let senderName, receiverName = null;
+
+        if (USE_FALLBACK) {
+          // Fallback: Get usernames from localStorage
+          const users = JSON.parse(localStorage.getItem('chat_users') || '[]');
+          const sender = users.find(u => u.id === msg.sender_id);
+          senderName = sender ? sender.username : 'Unknown';
+
+          if (msg.receiver_id) {
+            const receiver = users.find(u => u.id === msg.receiver_id);
+            receiverName = receiver ? receiver.username : 'Unknown';
+          }
+        } else {
+          // Fetch sender username
+          const { data: senders } = await client
+            .from('users')
+            .select('username')
+            .eq('id', msg.sender_id);
+
+          senderName = senders && senders.length > 0 ? senders[0].username : 'Unknown';
+
+          // Fetch receiver username if any
+          if (msg.receiver_id) {
+            const { data: receivers } = await client
+              .from('users')
+              .select('username')
+              .eq('id', msg.receiver_id);
+
+            receiverName = receivers && receivers.length > 0 ? receivers[0].username : 'Unknown';
+          }
+        }
+
+        // Filter visible messages
+        if (
+          !msg.receiver_id || // public
+          msg.sender_id === currentUserId || // sent by me
+          msg.receiver_id === currentUserId   // sent to me
+        ) {
+          const div = document.createElement('div');
+          div.classList.add('mb-2', 'p-2', 'rounded', 'text-sm', 'break-words');
+
+          const time = msg.created_at
+            ? new Date(msg.created_at).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+            : '';
+
+          if (msg.sender_id === currentUserId) {
+            div.classList.add('bg-teal-600', 'ml-auto', 'text-right', 'max-w-[80%]');
+          } else {
+            div.classList.add('bg-gray-700', 'max-w-[80%]');
+          }
+
+          div.innerHTML = `
+            <strong>${senderName}</strong> 
+            ${receiverName ? `<span class="text-gray-400 text-xs">→ ${receiverName}</span>` : ''}<br>
+            ${msg.content}
+            <div class="text-xs text-gray-400">${time}</div>
+          `;
+
+          messagesDiv.appendChild(div);
+          messagesDiv.scrollTop = messagesDiv.scrollHeight;
+        }
+      } catch (err) {
+        console.error('Render message error:', err);
+      }
+    }
+  </script>
+</body>
+
+</html>
