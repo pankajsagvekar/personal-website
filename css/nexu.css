@@ -1,0 +1,19 @@
+#chat {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.msg {
+  display: inline-block;
+  background-color: bisque;
+  border-radius: 1rem;
+  padding: 0.5rem 1rem;
+  margin-bottom: 5px;
+  max-width: 80%;
+  word-wrap: break-word;
+}
+
+.username {
+  font-weight: bold;
+}
