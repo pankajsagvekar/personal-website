@@ -1,220 +1,355 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PANKAJ SAGVEKAR</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/smoothscroll/1.5.1/SmoothScroll.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PANKAJ SAGVEKAR</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/smoothscroll/1.5.1/SmoothScroll.min.js"></script>
-  <script src="https://unpkg.com/lucide@latest"></script>
-</head>
+  <body>
+    <section class="relative h-screen w-full overflow-hidden" id="home">
+      <img
+        src="img/hero.jpg"
+        alt="background"
+        class="absolute top-0 left-0 w-full h-full md:h-fit object-cover object-center z-[-1]"
+      />
 
-<body>
-  <section class="relative h-screen w-full overflow-hidden" id="home">
-    <img src="img/hero.jpg" alt="background"
-      class="absolute top-0 left-0 w-full h-full md:h-fit object-cover object-center z-[-1]">
-
-    <div class="absolute top-0 left-0 w-full h-full bg-black bg-opacity-55 z-[-1]"></div>
-
-    <nav class="px-10 py-6">
       <div
-        class="flex flex-wrap justify-center sm:justify-between items-center gap-4 sm:gap-10 text-sm sm:text-lg uppercase font-mono font-semibold text-center">
-        <a href="#home" class="hover:text-red-500 transition">Home</a>
-        <a href="#about" class="hover:text-red-500 transition">About</a>
-        <a href="#projects" class="hover:text-red-500 transition">Projects</a>
-        <a href="pages/blogs.html" class="hover:text-red-500 transition">Blogs</a>
-        <a href="#contact" class="hover:text-red-500 transition">Contact</a>
-        <a href="chat/index.html" class="hover:text-red-500 transition">Chat</a>
-      </div>
-    </nav>
+        class="absolute top-0 left-0 w-full h-full bg-black bg-opacity-55 z-[-1]"
+      ></div>
 
-    <div class="flex justify-center items-center h-[calc(100vh-80px)] px-10 pb-20">
-      <h1 class="text-5xl sm:text-6xl lg:text-7xl font-bold hero-text hover:text-red-500 transition cursor-crosshair">
-        Pankaj Sagvekar</h1>
-    </div>
-
-  </section>
-
-  <section class="m-5" id="about">
-    <div class="font-mono">
-      <h2 class="text-3xl font-semibold text-red-600">About Me</h2>
-      <p>
-        Hey! I’m a Computer Science student and programmer who loves building creative and meaningful projects. I mostly
-        work with Python, especially using Django and Flask to build web apps and tools that solve real problems.
-
-        I’m always exploring new technologies and enjoy participating in hackathons and working on ideas around mental
-        health, productivity, and learning. Always curious. Always coding.
-      </p>
-    </div>
-  </section>
-
-  <section class="m-5" id="projects">
-    <div class="font-mono">
-      <h2 class="text-3xl font-semibold text-red-600">My Projects</h2>
-      <div class="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-6">
-
-        <!-- Task Manager Card -->
+      <nav class="px-10 py-6">
         <div
-          class="bg-white border border-gray-300 rounded-lg shadow-sm flex flex-col md:flex-row overflow-hidden lg:h-72">
-          <div class="md:w-1/2 h-48 md:h-auto">
-            <img class="w-full h-full object-cover" src="img/taskapi.jpg" alt="Card image" />
-          </div>
-          <div class="md:w-1/2 p-4 flex flex-col justify-between">
-            <div>
-              <h5 class="text-xl font-bold tracking-tight text-gray-700">
-                Task Manager API
-              </h5>
-              <p class="text-sm text-gray-500 mt-2">
-                A secure, production-ready task-management backend built with Spring Boot 3, Spring Security (JWT),
-                Spring Data JPA and MySQL.
-              </p>
-            </div>
-            <a href="https://github.com/pankajsagvekar/task-manager-api"
-              class="inline-flex items-center mt-4 px-3 py-2 text-sm font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800">
-              Check Project
-              <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" xmlns="http://www.w3.org/2000/svg" fill="none"
-                viewBox="0 0 14 10">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M1 5h12m0 0L9 1m4 4L9 9" />
-              </svg>
-            </a>
-          </div>
-        </div>
-
-        <!-- Blogging Platform Card -->
-        <div
-          class="bg-white border border-gray-300 rounded-lg shadow-sm flex flex-col md:flex-row overflow-hidden lg:h-72">
-          <div class="md:w-1/2 h-48 md:h-auto">
-            <img class="w-full h-full object-cover" src="img/blogplatform.jpg" alt="Card image" />
-          </div>
-          <div class="md:w-1/2 p-4 flex flex-col justify-between">
-            <div>
-              <h5 class="text-xl font-bold tracking-tight text-gray-700">
-                Blogging Platform
-              </h5>
-              <p class="text-sm text-gray-500 mt-2">
-                The Blogging Platform is a secure backend built with Spring Boot, MySQL, and JWT for managing posts,
-                comments, and likes.
-              </p>
-            </div>
-            <a href="https://github.com/pankajsagvekar/blogging-platform"
-              class="inline-flex items-center mt-4 px-3 py-2 text-sm font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800">
-              Check Project
-              <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" xmlns="http://www.w3.org/2000/svg" fill="none"
-                viewBox="0 0 14 10">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M1 5h12m0 0L9 1m4 4L9 9" />
-              </svg>
-            </a>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <section class="m-5" id="contact">
-    <div class="font-mono max-w-2xl mx-auto text-center">
-      <h2 class="text-3xl font-semibold text-red-600 mb-4">Contact Me</h2>
-      <p class="text-gray-700 mb-6">I'd love to hear from you! Whether it's a project, a collaboration, or just a chat —
-        feel free to drop a message.</p>
-      <form action="https://formspree.io/f/xwpbjnvk" method="POST" class="space-y-4">
-        <div>
-          <input type="text" name="name" placeholder="Your Name"
-            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-400"
-            required>
-        </div>
-        <div>
-          <input type="email" name="email" placeholder="Your Email"
-            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-400"
-            required>
-        </div>
-        <div>
-          <textarea name="message" rows="5" placeholder="Your Message"
-            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-400"
-            required></textarea>
-        </div>
-        <button type="submit" class="bg-red-500 text-white px-6 py-2 rounded-lg hover:bg-red-600 transition">Send
-          Message</button>
-      </form>
-    </div>
-  </section>
-
-  <footer class="bg-black text-white font-mono">
-    <div class="max-w-screen-xl mx-auto px-6 py-10">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
-        <div>
-          <h3 class="text-lg font-semibold text-red-500 mb-2">Quick Links</h3>
-          <ul class="text-sm space-y-2">
-            <li><a href="#home" class="hover:text-red-400 transition">Home</a></li>
-            <li><a href="#about" class="hover:text-red-400 transition">About</a></li>
-            <li><a href="#projects" class="hover:text-red-400 transition">Projects</a></li>
-            <li><a href="#contact" class="hover:text-red-400 transition">Contact</a></li>
-            <li><a href="pages/blogs.html" class="hover:text-red-400 transition">Blogs</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <h3 class="text-lg font-semibold text-red-500 mb-2">Contact</h3>
-          <a href="mailto:pankajsagvekar167@gmail.com" class="hover:text-red-400 text-sm text-gray-300 block">
-            <i data-lucide="mail" class="inline w-4 h-4 mr-1"></i> pankajsagvekar167@gmail.com
+          class="flex flex-wrap justify-center sm:justify-between items-center gap-4 sm:gap-10 text-sm sm:text-lg uppercase font-mono font-semibold text-center"
+        >
+          <a href="#home" class="hover:text-red-500 transition">Home</a>
+          <a href="#about" class="hover:text-red-500 transition">About</a>
+          <a href="#projects" class="hover:text-red-500 transition">Projects</a>
+          <a href="pages/blogs.html" class="hover:text-red-500 transition"
+            >Blogs</a
+          >
+          <a href="#contact" class="hover:text-red-500 transition">Contact</a>
+          <a href="chat/index.html" class="hover:text-red-500 transition"
+            >Chat</a
+          >
+          <a
+            href="https://www.buymeacoffee.com/pankajsagvekar"
+            target="_blank"
+            class="bg-yellow-400 text-black px-4 py-2 rounded-md font-bold hover:bg-yellow-300 transition flex items-center gap-2"
+          >
+            <span>Buy Me a Coffee</span>
+            <!-- optional icon -->
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M3 10h4l3 10 4-18 3 10h4"
+              />
+            </svg>
           </a>
-          <p class="text-sm text-gray-300 mt-2">
-            <i data-lucide="map-pin" class="inline w-4 h-4 mr-1"></i> India
-          </p>
-          <div class="flex justify-center md:justify-start space-x-4 mt-4 text-sm">
-            <a href="https://linkedin.com/in/pankajsagvekar" target="_blank" rel="noopener"
-              class="hover:text-red-400 transition flex items-center">
-              <i data-lucide="linkedin" class="w-4 h-4 mr-1"></i> LinkedIn
+        </div>
+      </nav>
+
+      <div
+        class="flex justify-center items-center h-[calc(100vh-80px)] px-10 pb-20"
+      >
+        <h1
+          class="text-5xl sm:text-6xl lg:text-7xl font-bold hero-text hover:text-red-500 transition cursor-crosshair"
+        >
+          Pankaj Sagvekar
+        </h1>
+      </div>
+    </section>
+
+    <section class="m-5" id="about">
+      <div class="font-mono">
+        <h2 class="text-3xl font-semibold text-red-600">About Me</h2>
+        <p>
+          Hey! I’m a Computer Science student and programmer who loves building
+          creative and meaningful projects. I mostly work with Python,
+          especially using Django and Flask to build web apps and tools that
+          solve real problems. I’m always exploring new technologies and enjoy
+          participating in hackathons and working on ideas around mental health,
+          productivity, and learning. Always curious. Always coding.
+        </p>
+      </div>
+    </section>
+
+    <section class="m-5" id="projects">
+      <div class="font-mono">
+        <h2 class="text-3xl font-semibold text-red-600">My Projects</h2>
+        <div class="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <!-- Task Manager Card -->
+          <div
+            class="bg-white border border-gray-300 rounded-lg shadow-sm flex flex-col md:flex-row overflow-hidden lg:h-72"
+          >
+            <div class="md:w-1/2 h-48 md:h-auto">
+              <img
+                class="w-full h-full object-cover"
+                src="img/taskapi.jpg"
+                alt="Card image"
+              />
+            </div>
+            <div class="md:w-1/2 p-4 flex flex-col justify-between">
+              <div>
+                <h5 class="text-xl font-bold tracking-tight text-gray-700">
+                  Task Manager API
+                </h5>
+                <p class="text-sm text-gray-500 mt-2">
+                  A secure, production-ready task-management backend built with
+                  Spring Boot 3, Spring Security (JWT), Spring Data JPA and
+                  MySQL.
+                </p>
+              </div>
+              <a
+                href="https://github.com/pankajsagvekar/task-manager-api"
+                class="inline-flex items-center mt-4 px-3 py-2 text-sm font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800"
+              >
+                Check Project
+                <svg
+                  class="rtl:rotate-180 w-3.5 h-3.5 ms-2"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 14 10"
+                >
+                  <path
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M1 5h12m0 0L9 1m4 4L9 9"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Blogging Platform Card -->
+          <div
+            class="bg-white border border-gray-300 rounded-lg shadow-sm flex flex-col md:flex-row overflow-hidden lg:h-72"
+          >
+            <div class="md:w-1/2 h-48 md:h-auto">
+              <img
+                class="w-full h-full object-cover"
+                src="img/blogplatform.jpg"
+                alt="Card image"
+              />
+            </div>
+            <div class="md:w-1/2 p-4 flex flex-col justify-between">
+              <div>
+                <h5 class="text-xl font-bold tracking-tight text-gray-700">
+                  Blogging Platform
+                </h5>
+                <p class="text-sm text-gray-500 mt-2">
+                  The Blogging Platform is a secure backend built with Spring
+                  Boot, MySQL, and JWT for managing posts, comments, and likes.
+                </p>
+              </div>
+              <a
+                href="https://github.com/pankajsagvekar/blogging-platform"
+                class="inline-flex items-center mt-4 px-3 py-2 text-sm font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800"
+              >
+                Check Project
+                <svg
+                  class="rtl:rotate-180 w-3.5 h-3.5 ms-2"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 14 10"
+                >
+                  <path
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M1 5h12m0 0L9 1m4 4L9 9"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="m-5" id="contact">
+      <div class="font-mono max-w-2xl mx-auto text-center">
+        <h2 class="text-3xl font-semibold text-red-600 mb-4">Contact Me</h2>
+        <p class="text-gray-700 mb-6">
+          I'd love to hear from you! Whether it's a project, a collaboration, or
+          just a chat — feel free to drop a message.
+        </p>
+        <form
+          action="https://formspree.io/f/xwpbjnvk"
+          method="POST"
+          class="space-y-4"
+        >
+          <div>
+            <input
+              type="text"
+              name="name"
+              placeholder="Your Name"
+              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-400"
+              required
+            />
+          </div>
+          <div>
+            <input
+              type="email"
+              name="email"
+              placeholder="Your Email"
+              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-400"
+              required
+            />
+          </div>
+          <div>
+            <textarea
+              name="message"
+              rows="5"
+              placeholder="Your Message"
+              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-400"
+              required
+            ></textarea>
+          </div>
+          <button
+            type="submit"
+            class="bg-red-500 text-white px-6 py-2 rounded-lg hover:bg-red-600 transition"
+          >
+            Send Message
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <footer class="bg-black text-white font-mono">
+      <div class="max-w-screen-xl mx-auto px-6 py-10">
+        <div
+          class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left"
+        >
+          <div>
+            <h3 class="text-lg font-semibold text-red-500 mb-2">Quick Links</h3>
+            <ul class="text-sm space-y-2">
+              <li>
+                <a href="#home" class="hover:text-red-400 transition">Home</a>
+              </li>
+              <li>
+                <a href="#about" class="hover:text-red-400 transition">About</a>
+              </li>
+              <li>
+                <a href="#projects" class="hover:text-red-400 transition"
+                  >Projects</a
+                >
+              </li>
+              <li>
+                <a href="#contact" class="hover:text-red-400 transition"
+                  >Contact</a
+                >
+              </li>
+              <li>
+                <a href="pages/blogs.html" class="hover:text-red-400 transition"
+                  >Blogs</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-semibold text-red-500 mb-2">Contact</h3>
+            <a
+              href="mailto:pankajsagvekar167@gmail.com"
+              class="hover:text-red-400 text-sm text-gray-300 block"
+            >
+              <i data-lucide="mail" class="inline w-4 h-4 mr-1"></i>
+              pankajsagvekar167@gmail.com
             </a>
-            <a href="https://github.com/pankajsagvekar" target="_blank" rel="noopener"
-              class="hover:text-red-400 transition flex items-center">
-              <i data-lucide="github" class="w-4 h-4 mr-1"></i> GitHub
-            </a>
-            <a href="https://twitter.com/pankajsagvekar" target="_blank" rel="noopener"
-              class="hover:text-red-400 transition flex items-center">
-              <i data-lucide="twitter" class="w-4 h-4 mr-1"></i> Twitter
-            </a>
+            <p class="text-sm text-gray-300 mt-2">
+              <i data-lucide="map-pin" class="inline w-4 h-4 mr-1"></i> India
+            </p>
+            <div
+              class="flex justify-center md:justify-start space-x-4 mt-4 text-sm"
+            >
+              <a
+                href="https://linkedin.com/in/pankajsagvekar"
+                target="_blank"
+                rel="noopener"
+                class="hover:text-red-400 transition flex items-center"
+              >
+                <i data-lucide="linkedin" class="w-4 h-4 mr-1"></i> LinkedIn
+              </a>
+              <a
+                href="https://github.com/pankajsagvekar"
+                target="_blank"
+                rel="noopener"
+                class="hover:text-red-400 transition flex items-center"
+              >
+                <i data-lucide="github" class="w-4 h-4 mr-1"></i> GitHub
+              </a>
+              <a
+                href="https://twitter.com/pankajsagvekar"
+                target="_blank"
+                rel="noopener"
+                class="hover:text-red-400 transition flex items-center"
+              >
+                <i data-lucide="twitter" class="w-4 h-4 mr-1"></i> Twitter
+              </a>
+            </div>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-semibold text-red-500 mb-2">Site Info</h3>
+            <p class="text-sm text-gray-300">
+              Built using <span class="text-white">HTML</span>,
+              <span class="text-white">CSS</span>, and
+              <span class="text-white">Tailwind CSS</span>. Hosted on
+              <a
+                href="https://pages.github.com/"
+                target="_blank"
+                rel="noopener"
+                class="hover:text-red-400"
+                >GitHub Pages</a
+              >, domain by
+              <a
+                href="https://gen.xyz"
+                target="_blank"
+                rel="noopener"
+                class="hover:text-red-400"
+                >Gen.xyz</a
+              >.
+            </p>
           </div>
         </div>
 
-        <div>
-          <h3 class="text-lg font-semibold text-red-500 mb-2">Site Info</h3>
-          <p class="text-sm text-gray-300">
-            Built using <span class="text-white">HTML</span>, <span class="text-white">CSS</span>, and <span
-              class="text-white">Tailwind CSS</span>.
-            Hosted on <a href="https://pages.github.com/" target="_blank" rel="noopener"
-              class="hover:text-red-400">GitHub Pages</a>, domain by <a href="https://gen.xyz" target="_blank"
-              rel="noopener" class="hover:text-red-400">Gen.xyz</a>.
-          </p>
+        <div
+          class="border-t border-gray-700 mt-10 pt-5 text-center text-sm text-gray-500"
+        >
+          © 2025 Pankaj Sagvekar. All rights reserved.
         </div>
       </div>
+    </footer>
 
-      <div class="border-t border-gray-700 mt-10 pt-5 text-center text-sm text-gray-500">
-        © 2025 Pankaj Sagvekar. All rights reserved.
-
-      </div>
-    </div>
-  </footer>
-
-
-  <canvas class="background pointer-events-none"></canvas>
-  <script>
-    window.onload = function () {
-      Particles.init({
-        selector: '.background',
-        color: '#F2F2F2',
-      });
-
-    };
-  </script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.2/particles.min.js"></script>
-  <script>
-    lucide.createIcons();
-  </script>
-</body>
-
+    <canvas class="background pointer-events-none"></canvas>
+    <script>
+      window.onload = function () {
+        Particles.init({
+          selector: ".background",
+          color: "#F2F2F2",
+        });
+      };
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.2/particles.min.js"></script>
+    <script>
+      lucide.createIcons();
+    </script>
+  </body>
 </html>
